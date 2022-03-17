@@ -3,7 +3,6 @@
 typedef struct {
     element_t K0;
     element_t K1;
-    element_t k;
 } UserKey;
 
 UserKey keygen(PK pk, SK sk, element_t ID, pairing_t pairing) {
@@ -16,7 +15,6 @@ UserKey keygen(PK pk, SK sk, element_t ID, pairing_t pairing) {
     element_mul(key.K1, sk.s2, ID);
     element_add(key.K1, key.K1, sk.s1);
     element_add(key.K1, key.K1, k);
-    newElementAssign(key.k, pairing, "Zr", k);
 #ifdef DEBUG
     element_printf("KEYGEN : \n");
     element_printf("\tk  : %B\n", k);

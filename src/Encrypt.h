@@ -4,7 +4,6 @@ typedef struct {
     element_t C0;
     element_t C0_h;
     element_t C1;
-    element_t r;
 } CT;
 
 CT encrypt(element_t ID, element_t M, PK pk, pairing_t pairing) {
@@ -20,7 +19,6 @@ CT encrypt(element_t ID, element_t M, PK pk, pairing_t pairing) {
     element_mul(cypherText.C1, cypherText.C1, pk.h1);
     element_pow_zn(cypherText.C1, cypherText.C1, r);
     element_mul(cypherText.C1, cypherText.C1, M);
-    newElementAssign(cypherText.r, pairing, "Zr", r);
 #ifdef DEBUG
     element_printf("ENCRYPT : \n");
     element_printf("\tr    : %B\n", r);

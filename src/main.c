@@ -30,8 +30,8 @@ int main(int argc, char const* argv[]) {
     SETUP Setup = setup(pairing);
     UserKey key = keygen(Setup.pk, Setup.sk, ID, pairing);
     CT ct = encrypt(ID, M, Setup.pk, pairing);
-    DC dt = decrypt(ct, key, pairing, Setup, ID);
+    DC dt = decrypt(ct, key, pairing);
     int result = element_cmp(dt.msg, M);
-    printf("%d", result);
+    printf("%d\n", result);
     return 0;
 }
