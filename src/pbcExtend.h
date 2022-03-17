@@ -1,7 +1,9 @@
 #ifndef PBC_H
 #define PBC_H
+#endif
 
 #include <pbc.h>
+#include <string.h>
 
 void newElement(element_t e, pairing_t pairing, char* type) {
     if (strcmp(type, "G1") == 0)
